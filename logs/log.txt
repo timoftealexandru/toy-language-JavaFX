@@ -419,3 +419,1267 @@ Output = {
 Heap = {
    1 - 30
 }
+3
+ExeStack = {
+   v=Const(10); New(v,Const(20)); New(a,Const(22)); wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)      
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+3
+ExeStack = {
+   v=Const(10)
+   New(v,Const(20)); New(a,Const(22)); wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)     
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+3
+ExeStack = {
+   v=Const(10)
+   New(v,Const(20)); New(a,Const(22)); wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)     
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+3
+ExeStack = {
+   New(v,Const(20)); New(a,Const(22)); wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)     
+}
+SymbolTable = {
+   v <- 10
+}
+Output = {}
+Heap = {}
+3
+ExeStack = {
+   New(v,Const(20)); New(a,Const(22)); wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)     
+}
+SymbolTable = {
+   v <- 10
+}
+Output = {}
+Heap = {}
+3
+ExeStack = {
+   New(v,Const(20))
+   New(a,Const(22)); wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)    
+}
+SymbolTable = {
+   v <- 10
+}
+Output = {}
+Heap = {}
+3
+ExeStack = {
+   New(v,Const(20))
+   New(a,Const(22)); wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)    
+}
+SymbolTable = {
+   v <- 10
+}
+Output = {}
+Heap = {}
+3
+ExeStack = {
+   New(a,Const(22)); wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)    
+}
+SymbolTable = {
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+}
+3
+ExeStack = {
+   New(a,Const(22)); wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)    
+}
+SymbolTable = {
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+}
+3
+ExeStack = {
+   New(a,Const(22))
+   wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)   
+}
+SymbolTable = {
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+}
+3
+ExeStack = {
+   New(a,Const(22))
+   wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)   
+}
+SymbolTable = {
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+}
+3
+ExeStack = {
+   wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)   
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+   2 - 22
+}
+3
+ExeStack = {
+   wH(a,Const(30)); Print(Var(a)); Print(rH(a)); a=Const(0)   
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+   2 - 22
+}
+3
+ExeStack = {
+   wH(a,Const(30))
+   Print(Var(a)); Print(rH(a)); a=Const(0)  
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+   2 - 22
+}
+3
+ExeStack = {
+   wH(a,Const(30))
+   Print(Var(a)); Print(rH(a)); a=Const(0)  
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+   2 - 22
+}
+3
+ExeStack = {
+   Print(Var(a)); Print(rH(a)); a=Const(0)  
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {
+   Print(Var(a)); Print(rH(a)); a=Const(0)  
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {
+   Print(Var(a))
+   Print(rH(a)); a=Const(0) 
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {
+   Print(Var(a))
+   Print(rH(a)); a=Const(0) 
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {
+   Print(rH(a)); a=Const(0) 
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {
+   2
+}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {
+   Print(rH(a)); a=Const(0) 
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {
+   2
+}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {
+   Print(rH(a))
+   a=Const(0)
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {
+   2
+}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {
+   Print(rH(a))
+   a=Const(0)
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {
+   2
+}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {
+   a=Const(0)
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {
+   2
+   30
+}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {
+   a=Const(0)
+}
+SymbolTable = {
+   a <- 2
+   v <- 1
+}
+Output = {
+   2
+   30
+}
+Heap = {
+   1 - 20
+   2 - 30
+}
+3
+ExeStack = {}
+SymbolTable = {
+   a <- 0
+   v <- 1
+}
+Output = {
+   2
+   30
+}
+Heap = {
+   1 - 20
+   2 - 30
+}
+4
+ExeStack = {
+   v=Const(10); New(a,Const(22)) ; fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   ); Print(Var(v)); Print(rH(a))   
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+4
+ExeStack = {
+   v=Const(10); New(a,Const(22)) 
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   ); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+4
+ExeStack = {
+   v=Const(10); New(a,Const(22)) 
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   ); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+4
+ExeStack = {
+   v=Const(10)
+   New(a,Const(22))
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   ); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+4
+ExeStack = {
+   v=Const(10)
+   New(a,Const(22))
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   ); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+4
+ExeStack = {
+   New(a,Const(22))
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   ); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {
+   v <- 10
+}
+Output = {}
+Heap = {}
+4
+ExeStack = {
+   New(a,Const(22))
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   ); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {
+   v <- 10
+}
+Output = {}
+Heap = {}
+4
+ExeStack = {
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   ); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+4
+ExeStack = {
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   ); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+4
+ExeStack = {
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   )
+   Print(Var(v)); Print(rH(a)) 
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+4
+ExeStack = {
+   fork(wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   )
+   Print(Var(v)); Print(rH(a)) 
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+4
+ExeStack = {
+   Print(Var(v)); Print(rH(a)) 
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+5
+ExeStack = {
+   wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+4
+ExeStack = {
+   Print(Var(v)); Print(rH(a)) 
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+5
+ExeStack = {
+   wH(a,Const(30)); v=Const(32); Print(Var(v)); Print(rH(a))   
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+4
+ExeStack = {
+   Print(Var(v))
+   Print(rH(a))
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+5
+ExeStack = {
+   wH(a,Const(30))
+   v=Const(32); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+4
+ExeStack = {
+   Print(Var(v))
+   Print(rH(a))
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+5
+ExeStack = {
+   wH(a,Const(30))
+   v=Const(32); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {}
+Heap = {
+   1 - 22
+}
+4
+ExeStack = {
+   Print(rH(a))
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {
+   10
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   v=Const(32); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {
+   10
+}
+Heap = {
+   1 - 30
+}
+4
+ExeStack = {
+   Print(rH(a))
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {
+   10
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   v=Const(32); Print(Var(v)); Print(rH(a))  
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {
+   10
+}
+Heap = {
+   1 - 30
+}
+4
+ExeStack = {}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {
+   10
+   30
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   v=Const(32)
+   Print(Var(v)); Print(rH(a)) 
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {
+   10
+   30
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   v=Const(32)
+   Print(Var(v)); Print(rH(a)) 
+}
+SymbolTable = {
+   a <- 1
+   v <- 10
+}
+Output = {
+   10
+   30
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   Print(Var(v)); Print(rH(a)) 
+}
+SymbolTable = {
+   a <- 1
+   v <- 32
+}
+Output = {
+   10
+   30
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   Print(Var(v)); Print(rH(a)) 
+}
+SymbolTable = {
+   a <- 1
+   v <- 32
+}
+Output = {
+   10
+   30
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   Print(Var(v))
+   Print(rH(a))
+}
+SymbolTable = {
+   a <- 1
+   v <- 32
+}
+Output = {
+   10
+   30
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   Print(Var(v))
+   Print(rH(a))
+}
+SymbolTable = {
+   a <- 1
+   v <- 32
+}
+Output = {
+   10
+   30
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   Print(rH(a))
+}
+SymbolTable = {
+   a <- 1
+   v <- 32
+}
+Output = {
+   10
+   30
+   32
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {
+   Print(rH(a))
+}
+SymbolTable = {
+   a <- 1
+   v <- 32
+}
+Output = {
+   10
+   30
+   32
+}
+Heap = {
+   1 - 30
+}
+5
+ExeStack = {}
+SymbolTable = {
+   a <- 1
+   v <- 32
+}
+Output = {
+   10
+   30
+   32
+   30
+}
+Heap = {
+   1 - 30
+}
+6
+ExeStack = {
+   v=Const(6); While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v))  
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   v=Const(6)
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v)) 
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   v=Const(6)
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v)) 
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v)) 
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v)) 
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v)); v= Var(v)-Const(1)  
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v)); v= Var(v)-Const(1)  
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v))
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v))
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+6
+ExeStack = {
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {
+   6
+}
+Heap = {}
+6
+ExeStack = {
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {
+   6
+}
+Heap = {}
+6
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+}
+Heap = {}
+6
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v)); v= Var(v)-Const(1)  
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v)); v= Var(v)-Const(1)  
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v))
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v))
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+}
+Heap = {}
+6
+ExeStack = {
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+   5
+}
+Heap = {}
+6
+ExeStack = {
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+   5
+}
+Heap = {}
+6
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 4
+}
+Output = {
+   6
+   5
+}
+Heap = {}
+6
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 4
+}
+Output = {
+   6
+   5
+}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 4
+}
+Output = {
+   6
+   5
+}
+Heap = {}
+6
+ExeStack = {
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 4
+}
+Output = {
+   6
+   5
+}
+Heap = {}
+6
+ExeStack = {}
+SymbolTable = {
+   v <- 4
+}
+Output = {
+   6
+   5
+   4
+}
+Heap = {}
+8
+ExeStack = {
+   v=Const(6); While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v))  
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   v=Const(6)
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v)) 
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   v=Const(6)
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v)) 
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v)) 
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  ; Print(Var(v)) 
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   Print(Var(v)); v= Var(v)-Const(1)  
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   Print(Var(v)); v= Var(v)-Const(1)  
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   Print(Var(v))
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   Print(Var(v))
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {}
+Heap = {}
+8
+ExeStack = {
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {
+   6
+}
+Heap = {}
+8
+ExeStack = {
+   v= Var(v)-Const(1) 
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 6
+}
+Output = {
+   6
+}
+Heap = {}
+8
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+}
+Heap = {}
+8
+ExeStack = {
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+}
+Heap = {}
+8
+ExeStack = {
+   Print(Var(v)); v= Var(v)-Const(1)  
+   While( Var(v)-Const(4) )Print(Var(v)); v= Var(v)-Const(1)  
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 5
+}
+Output = {
+   6
+}
+Heap = {}
+9
+ExeStack = {
+   v=Const(2); Print(Var(v)) 
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+9
+ExeStack = {
+   v=Const(2)
+   Print(Var(v))
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+9
+ExeStack = {
+   v=Const(2)
+   Print(Var(v))
+}
+SymbolTable = {}
+Output = {}
+Heap = {}
+9
+ExeStack = {
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 2
+}
+Output = {}
+Heap = {}
+9
+ExeStack = {
+   Print(Var(v))
+}
+SymbolTable = {
+   v <- 2
+}
+Output = {}
+Heap = {}
+9
+ExeStack = {}
+SymbolTable = {
+   v <- 2
+}
+Output = {
+   2
+}
+Heap = {}

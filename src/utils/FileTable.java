@@ -33,6 +33,10 @@ public class FileTable<E,F> implements IFileTable<E,F>{
     }
 
     @Override
+    public Collection<E> keys(){
+        return this.map.keySet();
+    }
+    @Override
     public Iterable<Map.Entry<E,F>> getAll(){
         return map.entrySet();
     }

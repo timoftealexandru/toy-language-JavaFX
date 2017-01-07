@@ -9,19 +9,130 @@ import java.util.concurrent.*;
 import java.lang.*;
 import java.util.concurrent.Callable;
 
-public class Controller {
-    private IRepository repo;
-    private ExecutorService executor;
+import utils.Tuple;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.util.Callback;
+import model.*;
+import repo.IRepository;
+import services.PrgStateService;
+import utils.Observable;
 
-    public Controller(IRepository repo){
-        this.repo=repo;
+public class Controller implements utils.Observer<PrgState>{
+    @FXML
+    private Label prgStatesCnt;
+    @FXML
+    private TableView<Map.Entry<Integer, Integer>> heapTableView;
+    @FXML
+    private ListView<String> outListView;
+    @FXML
+    private TableView<Tuple<Integer, String>> fileTableView;
+    @FXML
+    private ListView<PrgState> prgStateListView;
+    @FXML
+    private Label prgIdLabel;
+    @FXML
+    private ListView exeStackListView;
+
+    private IRepository repo;
+    ObservableList<PrgState> prgStateModel;
+    ObservableList<String> outListModel;
+    ObservableList<Map.Entry<Integer, Integer>> heapTableModel;
+    ObservableList<Tuple<Integer, String>> fileTableModel;
+    private ExecutorService executor;
+    private PrgStateService prgStateService;
+
+    public Controller(){
+
     }
+
+    @FXML
+    private void initialize() {
+    }
+
+    public void setService(PrgStateService prgStateService) {
+        this.prgStateService = prgStateService;
+        this.repo = this.prgStateService.getRepo();
+        //prg state model;
+        this.prgStateModel = FXCollections.observableArrayList();
+        this.prgStateListView.setItems(this.prgStateModel);
+        this.prgStateListView.setCellFactory(new Callback<ListView<PrgState>, ListCell<PrgState>>() {
+            @Override
+            public ListCell<PrgState> call(ListView<PrgState> param) {
+                ListCell<PrgState> listCell = new ListCell<PrgState>() {
+                    @Override
+                    protected void updateItem(PrgState e, boolean empty) {
+                        super.updateItem(e, empty);
+                        if(e == null || empty)
+                            setText("");
+                        else
+                            setText(String.valueOf(e.getId()));
+                    }
+                };
+                return listCell;
+            }
+        });
+        // heapTableView
+        this.heapTableModel = FXCollections.observableArrayList();
+        TableColumn<Map.Entry<Integer, Integer>, String> first = new TableColumn<>("Address");
+        TableColumn<Map.Entry<Integer, Integer>, String> second = new TableColumn<>("Value");
+        first.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, String> param) {
+                return new SimpleStringProperty(String.valueOf(param.getValue().getKey()));
+            }
+        });
+        second.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Map.Entry<Integer, Integer>, String> param) {
+                return new SimpleStringProperty(String.valueOf(param.getValue().getValue()));
+            }
+        });
+        this.heapTableView.getColumns().setAll(first, second);
+        this.heapTableView.setItems(this.heapTableModel);
+
+        ///fileTableView
+        this.fileTableModel = FXCollections.observableArrayList();
+        TableColumn<Tuple<Integer, String>, String> fd = new TableColumn<>("File descriptor");
+        TableColumn<Tuple<Integer, String>, String> fn = new TableColumn<>("File name");
+        fd.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Tuple<Integer, String>, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Tuple<Integer, String>, String> param) {
+                return new SimpleStringProperty(String.valueOf(param.getValue().getFirst()));
+            }
+        });
+        fn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Tuple<Integer, String>, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Tuple<Integer, String>, String> param) {
+                return new SimpleStringProperty(String.valueOf(param.getValue().getSecond()));
+            }
+        });
+        this.fileTableView.getColumns().setAll(fd, fn);
+        this.fileTableView.setItems(this.fileTableModel);
+
+        // outListView
+        this.outListModel = FXCollections.observableArrayList();
+        this.outListView.setItems(this.outListModel);
+
+        this.update(this.prgStateService);
+    }
+
 
     public List<PrgState> removeCompletedPrgState(List<PrgState> l){
         return l.stream()
                 .filter(p->p.isNotCompleted())
                 .collect(Collectors.toList());
     }
+
+    public void setMain(PrgState state) {
+        this.repo.getPrgStates().clear();
+        this.repo.getPrgStates().add(state);
+    }
+
     private void oneStepForAll(List<PrgState> list) throws InterruptedException {
         // I. Log the ProgramStates before the execution
         list.forEach(p -> repo.logPrgStateExec(p));
@@ -62,17 +173,23 @@ public class Controller {
         list.addAll(newProgramList);
 
         // III. Log the ProgramStates after the execution
-        list.forEach(p -> repo.logPrgStateExec(p));
-
+        list.forEach(prg -> {
+            try {
+                repo.logPrgStateExec(prg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
         // IV. save the current programs in the repository
         repo.setPrgStates(list);
+        this.prgStateService.notifyObservers();
     }
 
 
     public void allStep(){
         executor = Executors.newFixedThreadPool(2);
         while(true){
-            List<PrgState> list=removeCompletedPrgState(repo.getPrgStates());
+            List<PrgState> list=removeCompletedPrgState(this.prgStateService.getAll());
             if(list.size()==0)
                 break;
             try {
@@ -84,6 +201,53 @@ public class Controller {
             }
         }
         executor.shutdownNow();
+    }
+
+    @FXML
+    public void allStepsGUI() throws InterruptedException{
+        executor = Executors.newFixedThreadPool(2);
+        while(true) {
+            this.prgStateService.notifyObservers();
+            List<PrgState> prgList = removeCompletedPrgState(this.prgStateService.getAll());
+            if(prgList.size() == 0) {
+                System.out.println("FINISHED");
+                break;
+            }
+            oneStepForAll(prgList);
+            System.out.println("ONE STEP");
+            break;
+        }
+        executor.shutdownNow();
+        /*
+        List<PrgState> prgList = rep.getPrgList();
+        while(!crt.getExeStack().isEmpty()) {
+            //this.rep.serialize();
+            oneStep(crt);
+            crt.getHeap().setMap(this.conservativeGarbageCollector(crt.getSymTable().values(), crt.getHeap().getMap()));
+            //this.rep.deserialize();
+            try {
+                rep.logPrgStateExec();
+            } catch (IOException e) {
+                System.out.println("Cannot log program state to file. Exiting...");
+                return ;
+            }
+        }
+        */
+    }
+
+    @Override
+    public void update(Observable<PrgState> observable) {
+        List<PrgState> prgStates = this.prgStateService.getAll();
+        this.prgStatesCnt.setText(String.valueOf(prgStates.size()));
+        this.prgStateModel.setAll(prgStates);
+        this.outListModel.setAll(this.prgStateService.getOutList());
+        this.heapTableModel.setAll(this.prgStateService.getHeapList());
+        this.fileTableModel.setAll(prgStates.get(0).getFileTable().keys()
+                .stream()
+                .map(k -> new Tuple<Integer, String>(k, prgStates.get(0).getFileTable().getValue(k).getFileName()))
+                .collect(Collectors.toList())
+        );
+        this.fileTableModel.stream().map(e->String.valueOf(e.getFirst()) + e.getSecond()).forEach(System.out::println);
     }
 
     public void executeOneStep(PrgState state){
@@ -109,56 +273,3 @@ public class Controller {
     }
 }
 
-    /*
-    public void executeAll()  {
-        PrgState prg = repo.getCurrentProgramState();
-        while(!prg.getExeStack().isEmpty()) {
-            executeOneStep(prg);
-            prg.getHeap().setMap(this.conservativeGarbageCollector(prg.getSymbolTable().values(), prg.getHeap().getMap()));
-            try {
-                repo.logPrgStateExec();
-            } catch (InterpreterException e) {
-                System.out.println("Cannot log program state to file !"+e);
-                return ;
-            }
-        }
-    }
-    */
-
-
-    /*
-    public void oneStepForAll(List<PrgState> list){
-        list.forEach(prg->this.repo.logPrgStateExec(prg));
-
-
-        List<Callable<PrgState>> callables= list
-                .stream()
-                .map((PrgState prg)->(Callable<PrgState>) (()->prg.oneStep()))
-                .collect(Collectors.toList());
-
-        try {
-            List<PrgState> newPrg = executor
-                    .invokeAll(callables)
-                    .stream()
-                    .map(future -> {
-                        try {
-                            return future.get();
-                        } catch (InterruptedException er) {
-                            er.printStackTrace();
-                        } catch (ExecutionException err) {
-                            err.printStackTrace();
-                        }
-                        return null;
-                    })
-                    .filter(p -> p != null)
-                    .collect(Collectors.toList());
-
-            list.addAll(newPrg);
-            repo.setPrgStates(list);
-        }
-        catch(InterruptedException e){
-            e.printStackTrace();
-        }
-
-    }
-    */

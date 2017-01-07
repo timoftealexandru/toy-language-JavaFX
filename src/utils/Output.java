@@ -15,6 +15,9 @@ public class Output<E> implements IOutput<E> {
     public Iterable<E> getAll(){
         return outs;
     };
+    public E get(int index){
+        return this.outs.get(index);
+    }
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();

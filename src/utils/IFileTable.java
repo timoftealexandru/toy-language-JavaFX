@@ -8,5 +8,6 @@ public interface IFileTable<E,F> extends Serializable{
     public void setValue(E key,F value);
     public F getValue(E key);
     public void delete(E key);
+    public Collection<E> keys();
     Iterable<Map.Entry<E,F>> getAll();
 }
